@@ -7,4 +7,4 @@
 
 DAYS_PER_YEAR = 365
 
-print("Welcome to the Payday loan APR calculator.")
+print("Welcome to the payday loan APR calculator.")
