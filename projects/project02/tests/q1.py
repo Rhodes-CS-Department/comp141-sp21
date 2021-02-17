@@ -6,7 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> round(scenario_1_months_rate, 0)
+          >>> int(round(scenario_1_months_rate, 0))
           150
           """,
           'hidden': False,
