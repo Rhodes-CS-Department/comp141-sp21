@@ -1,0 +1,16 @@
+{
+  "name": "Project 4",
+  "endpoint": "rhodes/comp141/sp21/project04",
+  "src": [
+    "P4.ipynb",
+    "pcalendar.py"
+  ],
+  "tests": {
+      "tests/q*.py": "ok_test"
+  },
+  "protocols": [
+      "file_contents",
+      "grading",
+      "backup"
+  ]
+}
