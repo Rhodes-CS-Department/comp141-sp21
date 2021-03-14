@@ -56,7 +56,7 @@ def reload_functions(filename, verbose=False):
     any function *calls* are ignored.  
     
     This function came about for two reasons.  First, we typically have students
-    call main() at the end of their programs, and when one does "from ___ import *"
+    call main() at the end of their programs, and when one does "from _____ import *"
     that will end up calling main() when all you want to do is import the functions
     into a notebook so they can be tested.  Furthermore, the IPython %autoreload magic
     is buggy at times, and doesn't always seem to reload the functions, and when it
@@ -73,6 +73,9 @@ def reload_functions(filename, verbose=False):
 
     and then all the functions in the .py file should be available in that notebook
     cell, and any calls to main() or other functions in the .py file will be ignored.
+
+    PS: This functions is also an end-run around us never teaching the 
+    if __name__ == "__main__" trick, and now we're paying the price.  :-)
     """
     
     if verbose: print("Reloading functions from", filename)
@@ -91,7 +94,7 @@ def reload_functions(filename, verbose=False):
             else:
                 if verbose: print("accepting", node)
 
-    # Compile the code and add it to the __main__ dictionary, which contains
+    # Compile the code and exec it in the __main__ namespace, which contains
     # all the variables for the notebook cells.
     obj = compile(p, filename=filename, mode="exec")
     exec(obj, sys.modules["__main__"].__dict__)
